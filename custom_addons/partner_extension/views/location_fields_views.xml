@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Define the tree view for the location fields -->
+    <record id="view_location_fields_tree" model="ir.ui.view">
+        <field name="name">location.fields.tree</field>
+        <field name="model">partner_extension.location_fields</field>
+        <field name="arch" type="xml">
+            <tree string="Location Fields">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the form view for the location fields -->
+    <record id="view_location_fields_form" model="ir.ui.view">
+        <field name="name">location.fields.form</field>
+        <field name="model">partner_extension.location_fields</field>
+        <field name="arch" type="xml">
+            <form string="Location Fields">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the action to open the location fields views -->
+    <record id="action_location_fields" model="ir.actions.act_window">
+        <field name="name">Location Fields</field>
+        <field name="res_model">partner_extension.location_fields</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Add a menu item to access location fields under the existing parent menu -->
+    <menuitem id="menu_location_fields" name="Location Fields"
+              parent="contacts.res_partner_menu_config"
+              action="action_location_fields"
+              sequence="10"/>
+</odoo>
